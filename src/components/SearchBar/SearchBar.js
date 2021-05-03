@@ -1,4 +1,4 @@
-function SearchBar ({input, handleChange }) {
+function SearchBar ({input, handleInputChange }) {
     return (
         <input
         type="text"
@@ -6,7 +6,7 @@ function SearchBar ({input, handleChange }) {
         placeholder="Please Enter An Employees Name"
         aria-label="Name"
         value={input}
-        onChange={handleChange}
+        onChange={handleInputChange}
       />
     )
 }

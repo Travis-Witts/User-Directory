@@ -1,9 +1,11 @@
-import List from '../List/List'
+import React from "react";
+import List from "../List/List";
 
-
-function ListContainer() {
+function ListContainer({ employees, sortByName }) {
   return (
-<List></List>
+    <div>
+      <List sortByName={sortByName} employees={employees}></List>
+    </div>
   );
 }
 

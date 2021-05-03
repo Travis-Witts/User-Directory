@@ -10,29 +10,39 @@ function Container() {
 
   let handleInputChange = (event) => {
     event.preventDefault();
+    console.log(event.target.value)
     setInput(event.target.value);
-    let matches = employees.filter((employee) => {
+    // if (input === "") {
+    //   setSearch(employees);
+    // } else {
+      let matches = employees.filter((employee) => {
         let name = employee.name.first.toLowerCase();
         let search = input.toLowerCase();
-      if (name.startsWith(search)) {
-        return employee;
-      }
-    });
-    setSearch(matches);
+        if (name.includes(search)) {
+          return true;
+        }
+        return false;
+      });
+      console.log(matches)
+      setSearch(matches);
+    // }
   };
-
 
   useEffect(() => {
     async function fetchEmployees() {
-      searchAPI().then((res) => setEmployees(res.results));
+      let users = await searchAPI();
+      setEmployees(users.data.results);
+      setSearch(users.data.results);
     }
     fetchEmployees();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div>
       <SearchContainer handleInputChange={handleInputChange}></SearchContainer>
-      {/* <ListContainer ></ListContainer> */}
+      <ListContainer input={input} employees={searchData}></ListContainer>
     </div>
   );
 }
