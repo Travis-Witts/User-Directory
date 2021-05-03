@@ -1,9 +1,13 @@
-
-import './App.css';
+import "./App.css";
+import ListContainer from "./components/ListContainer";
+import SearchContainer from "./components/SearchContainer";
 
 function App() {
   return (
-<div></div>
+    <div>
+      <SearchContainer></SearchContainer>
+      <ListContainer></ListContainer>
+    </div>
   );
 }
 
