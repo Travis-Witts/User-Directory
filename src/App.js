@@ -1,13 +1,9 @@
 import "./App.css";
-import ListContainer from "./components/ListContainer";
-import SearchContainer from "./components/SearchContainer";
+import Container from "./components/Container/Container"
 
 function App() {
   return (
-    <div>
-      <SearchContainer></SearchContainer>
-      <ListContainer></ListContainer>
-    </div>
+    <Container></Container>
   );
 }
 
