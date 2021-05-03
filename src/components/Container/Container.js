@@ -40,7 +40,7 @@ function Container() {
   }, []);
 
   return (
-    <div>
+    <div style={{"backgroundColor" : "darkgray", "padding" : "0px 5px 5px 5px"}}>
       <SearchContainer handleInputChange={handleInputChange}></SearchContainer>
       <ListContainer input={input} employees={searchData}></ListContainer>
     </div>

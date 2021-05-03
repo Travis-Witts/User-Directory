@@ -4,7 +4,7 @@ import List from "../List/List";
 function ListContainer({ employees, sortByName }) {
   return (
     <div>
-      <List sortByName={sortByName} employees={employees}></List>
+      <List className="px-5" employees={employees}></List>
     </div>
   );
 }
