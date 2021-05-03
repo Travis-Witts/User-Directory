@@ -1,9 +1,11 @@
-import SearchBar from './SearchBar'
+import SearchBar from "../SearchBar/SearchBar";
 
-
-function SearchContainer() {
+function SearchContainer({ input, handleInputChange }) {
   return (
-<SearchBar employees={employees}></SearchBar>
+    <div>
+      <h1>Search for employees here:</h1>
+      <SearchBar input={input} handleInputChange={handleInputChange}></SearchBar>
+    </div>
   );
 }
 

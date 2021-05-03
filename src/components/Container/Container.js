@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
+import searchAPI from "../../utils/API";
 import SearchContainer from "../SearchContainer/SearchContainer";
 import ListContainer from "../ListContainer/ListContainer";
 
@@ -8,24 +8,23 @@ function Container() {
   const [searchData, setSearch] = useState([]);
   const [input, setInput] = useState("");
 
-  handleInputChange = (event) => {
+  let handleInputChange = (event) => {
     event.preventDefault();
     setInput(event.target.value);
     let matches = employees.filter((employee) => {
-      if (employee.name.first.startsWith(input)) {
+        let name = employee.name.first.toLowerCase();
+        let search = input.toLowerCase();
+      if (name.startsWith(search)) {
         return employee;
       }
     });
     setSearch(matches);
   };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-  };
 
   useEffect(() => {
     async function fetchEmployees() {
-      API.search().then((res) => this.setState({ employees: res.results }));
+      searchAPI().then((res) => setEmployees(res.results));
     }
     fetchEmployees();
   }, []);
@@ -33,9 +32,9 @@ function Container() {
   return (
     <div>
       <SearchContainer handleInputChange={handleInputChange}></SearchContainer>
-      <ListContainer employees={this.state.employees}></ListContainer>
+      {/* <ListContainer ></ListContainer> */}
     </div>
   );
 }
 
-API.search().then((res) => this.setState({ employees: res.results }));
+export default Container;

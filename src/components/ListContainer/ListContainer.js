@@ -1,11 +1,9 @@
-import List from './List'
-import search from '../utils'
+import List from '../List/List'
 
-let employees = search()
 
 function ListContainer() {
   return (
-<List employees={employees}></List>
+<List></List>
   );
 }
 
