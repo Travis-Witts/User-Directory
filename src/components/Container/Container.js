@@ -10,22 +10,19 @@ function Container() {
 
   let handleInputChange = (event) => {
     event.preventDefault();
-    console.log(event.target.value)
+    console.log(event.target.value);
     setInput(event.target.value);
-    // if (input === "") {
-    //   setSearch(employees);
-    // } else {
-      let matches = employees.filter((employee) => {
-        let name = employee.name.first.toLowerCase();
-        let search = input.toLowerCase();
-        if (name.includes(search)) {
-          return true;
-        }
-        return false;
-      });
-      console.log(matches)
-      setSearch(matches);
-    // }
+    let matches = employees.filter((employee) => {
+      let name = employee.name.first.toLowerCase();
+      let search = event.target.value.toLowerCase();
+      if (name.includes(search)) {
+        console.log(employee)
+        return true;
+      }
+      return false;
+    });
+    console.log(matches);
+    setSearch(matches);
   };
 
   useEffect(() => {
@@ -40,7 +37,7 @@ function Container() {
   }, []);
 
   return (
-    <div style={{"backgroundColor" : "darkgray", "padding" : "0px 5px 5px 5px"}}>
+    <div style={{ backgroundColor: "darkgray", padding: "0px 5px 5px 5px" }}>
       <SearchContainer handleInputChange={handleInputChange}></SearchContainer>
       <ListContainer input={input} employees={searchData}></ListContainer>
     </div>
