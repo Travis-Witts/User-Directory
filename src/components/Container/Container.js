@@ -10,7 +10,6 @@ function Container() {
 
   let handleInputChange = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
     setInput(event.target.value);
     let matches = employees.filter((employee) => {
       let name = employee.name.first.toLowerCase();
@@ -21,7 +20,6 @@ function Container() {
       }
       return false;
     });
-    console.log(matches);
     setSearch(matches);
   };
 
