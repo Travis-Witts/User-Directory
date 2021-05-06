@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import searchAPI from "../../utils/API";
-import SearchContainer from "../SearchContainer/SearchContainer";
-import ListContainer from "../ListContainer/ListContainer";
-import NavBar from "../Navbar/NavBar";
+import SearchContainer from "../SearchContainer";
+import ListContainer from "../ListContainer";
+import NavBar from "../Navbar";
 
 function Container() {
   const [employees, setEmployees] = useState([]);
@@ -29,6 +29,7 @@ function Container() {
       let users = await searchAPI();
       setEmployees(users.data.results);
       setSearch(users.data.results);
+      console.log(users)
     }
     fetchEmployees();
 
@@ -37,15 +38,15 @@ function Container() {
 
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar />
       <div style={{ backgroundColor: "#4d4d4d", color: "white", padding: "0px 5px 5px 5px" }}>
         <SearchContainer
           handleInputChange={handleInputChange}
-        ></SearchContainer>
-        <ListContainer input={input} employees={searchData}></ListContainer>
+        />
+        <ListContainer input={input} employees={searchData} />
       </div>
     </div>
   );
-}
+};
 
 export default Container;

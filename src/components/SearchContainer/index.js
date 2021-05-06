@@ -1,4 +1,4 @@
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar";
 
 function SearchContainer({ input, handleInputChange }) {
   return (
