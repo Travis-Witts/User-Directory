@@ -18,6 +18,10 @@
  
   ## Usage
   This is deployed on github pages which can be found on the link above.
+
+  ## Screenshot of the app:
+
+  ![Sale](./assets/no-search.png)
     
   ## License
     
